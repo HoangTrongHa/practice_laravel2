@@ -17,12 +17,22 @@ class StudentController extends Controller
     }
     public function save(Request $request)
     {
-        $news = new news;
-        $news->name = $request->name;
-        $news->email = $request->email;
-        $news->telephone = $request->telephone;
-        $news->feedback	 = $request->feedback;
-        $news->save();
-        return redirect()->action('StudentController@show');
+        $request->validate([
+            "feedback" => "required",
+            "name"=>"required",
+            "email"=>"required",
+            "telephone"=>"required"
+        ]);
+        try {
+            news::create([
+                "feedback" => $request->get("feedback"),
+                "name" => $request->get("name"),
+                "email" => $request->get("email"),
+                "telephone" => $request->get("telephone")
+            ]);
+        } catch (\Exception $exception) {
+            return redirect()->back();
+        }
+        return redirect()->to('StudentController@show');
     }
 }

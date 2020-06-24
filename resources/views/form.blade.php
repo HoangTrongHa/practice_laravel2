@@ -19,40 +19,58 @@
         <div class="col-md-6 col-md-offset-3 form-container">
             <h2>Feedback Dynamic Websites</h2>
             <p> Please provide your feedback below: </p>
-            <form role="form" method="post" id="reused_form" action="{{url("/save")}}">
+            <form role="form" action="{{url("/save")}}" method="post">
                 @method("POST")
                 @csrf
                 <div class="row">
                     <div class="col-sm-12 form-group">
                         <label for="feedback">Feedback</label><br>
-                        <textarea cols="20" rows="10" name="feedback"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 form-group">
-                        <label for="name"> Your Name:</label>
-                        <input type="text" name="name" value="">
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="email"> Email:</label>
-                        <input type="text" name="email" value="">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 form-group">
-                        <label for="text"> Telephone:</label>
-                        <input type="text" name="telephone" value="">
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <button type="submit" class="btn btn-lg btn-warning btn-block" >Post </button>
+                        <textarea class="form-control @error("feedback")is-invalid @enderror"type="text" name="feedback" placeholder="Enter Name">
+                        </textarea>
+                        @error("feedback")
+                        <span class="error invalid-feedback">{{$message}}</span>
+                        @enderror
                     </div>
 
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="feedback">Your Name</label><br>
+                        <input class="form-control @error("name")is-invalid @enderror"type="text" name="name" placeholder="Enter Name">
+                        @error("name")
+                        <span class="error invalid-feedback">{{$message}}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="feedback">Email</label><br>
+                        <input class="form-control @error("email")is-invalid @enderror"type="text" name="email" placeholder="Enter Name">
+                        @error("email")
+                        <span class="error invalid-feedback">{{$message}}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="feedback">Telephone</label><br>
+                        <input class="form-control @error("telephone")is-invalid @enderror"type="text" name="telephone" placeholder="Enter Name">
+                        @error("telephone")
+                        <span class="error invalid-feedback">{{$message}}</span>
+                        @enderror
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
                 </div>
             </form>
             <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Posted your feedback successfully!</h3> </div>
             <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
         </div>
+
     </div>
+
+</div>
 </div>
 </body>
 <style>
