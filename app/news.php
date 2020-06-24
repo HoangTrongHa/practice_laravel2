@@ -10,5 +10,10 @@ class news extends Model
     /**
      * @var mixed
      */
-
+    public $fillable =[
+        "feedback",
+        "name",
+        "email",
+        "telephone"
+];
 }
