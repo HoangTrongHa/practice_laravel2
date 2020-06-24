@@ -16,6 +16,7 @@
         </div>
         <div class="col-sm-8">
             <h1>Them Thanh Cong</h1>
+            <img src="../views/FPT001%20(1799).JPG">
         </div>
         <div class="col-sm-2">
         </div>

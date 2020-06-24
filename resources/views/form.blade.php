@@ -64,8 +64,6 @@
                     </div>
                 </div>
             </form>
-            <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Posted your feedback successfully!</h3> </div>
-            <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
         </div>
 
     </div>

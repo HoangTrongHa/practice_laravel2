@@ -33,6 +33,6 @@ class StudentController extends Controller
         } catch (\Exception $exception) {
             return redirect()->back();
         }
-        return redirect()->to('StudentController@show');
+        return redirect()->to('/thongbao');
     }
 }
